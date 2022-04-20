@@ -1,18 +1,31 @@
-let myBtn= document.getElementById('myBtn');
-let content= document.getElementById('content');
+let myBtn = document.getElementById('myBtn');
+let content = document.getElementById('content');
 
 
-function getData (){
-    //in fetch, we have to use two '.then' because we are using promise and the fetch also returns promise
-    fetch('learn.txt').then((response)=>{
-        console.log("Inside first then");
-        return response.text();
-    }).then((data)=>{
-        console.log("Inside second then");
+function getData() {
+    console.log("Inside first then");
+    fetch('https://api.github.com/users').then((response) => {
+        return response.json();//now it will return the data as json because we will get data as string and it will change it into json if the data has correct json syntax
+    }).then((data) => {
         console.log(data);
     })
 }
-console.log("Before running the func")
-getData();
-//the below code will be executed first become fetch is asynchronous
-console.log("After running the func")
+// getData();
+
+//for post request
+function postData() {
+    url = "http://dummy.restapiexample.com/api/v1/create";
+    data = '{"name":"harry123","salary":"123","age":"23"}';
+    params = {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
+    }
+    fetch(url, params).then(response => response.json()).then(data =>
+        console.log(data)
+    )
+}
+
+postData();
