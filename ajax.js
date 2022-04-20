@@ -4,6 +4,7 @@ fetchBtn.addEventListener('click', clickHandler);
 function clickHandler() {
     //making an XHR(XML Http Request) object
     let xhr = new XMLHttpRequest();
+    //we will get data from our local text file i.e. learn.txt
     xhr.open("GET", "learn.txt", true); //true means we made it asynchronous
 
     //what to do on progress of fetching the data, this is optional
