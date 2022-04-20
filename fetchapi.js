@@ -12,6 +12,7 @@ function getData() {
 }
 // getData();
 
+//this is the syntax for post request...it is used everytime
 //for post request
 function postData() {
     url = "http://dummy.restapiexample.com/api/v1/create";
